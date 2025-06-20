@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import './Login.css';
 
 function Login(props) {
     const { showAlert } = props;
-    let Navigate = useNavigate();
+    let navigate = useNavigate();
     const containerRef = useRef(null);
     const [Credentials, setCredentials] = useState({ email: "", password: "", name: "" });
 
@@ -45,7 +45,7 @@ function Login(props) {
         console.log(json);
         if(json.success){
             localStorage.setItem('token', json.authToken);
-            Navigate('/');
+            navigate('/');
         
             props.showAlert('success', 'Logged In Successfully');
         } else{
@@ -74,7 +74,7 @@ function Login(props) {
         console.log(json);
         if(json.success){
             localStorage.setItem('token', json.authToken);
-            Navigate('/');
+            navigate('/');
 
         props.showAlert('success', 'Account Created Successfully');
         } else{
